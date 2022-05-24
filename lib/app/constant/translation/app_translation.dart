@@ -4,6 +4,9 @@ import 'languages/ch.dart';
 import 'languages/en.dart';
 import 'languages/my.dart';
 
+const translationNameKey = "name";
+const translationLocaleKey = "locale";
+
 abstract class AppTranslation {
   static Map<String, Map<String, String>> translationsKeys = {
     "en_US": enLanguage,
@@ -13,16 +16,16 @@ abstract class AppTranslation {
 
   static List<Map<String, dynamic>> locales = [
     {
-      'name': 'English',
-      'locale': const Locale('en', 'US'),
+      translationNameKey: 'English',
+      translationLocaleKey: const Locale('en', 'US'),
     },
     {
-      'name': 'Myanmar',
-      'locale': const Locale('my', 'MM'),
+      translationNameKey: 'Myanmar',
+      translationLocaleKey: const Locale('my', 'MM'),
     },
     {
-      'name': 'Chinese',
-      'locale': const Locale('ch', 'CH'),
+      translationNameKey: 'Chinese',
+      translationLocaleKey: const Locale('ch', 'CH'),
     },
   ];
 }

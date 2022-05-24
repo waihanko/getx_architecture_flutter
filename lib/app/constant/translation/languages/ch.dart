@@ -1,5 +1,7 @@
+import '../../resources/app_string.dart';
+
 final Map<String, String> chLanguage = {
-  'hello': "你好",
-  'change_to': "中国人",
-  'welcome_text': "用于大型项目的 GetX 架构",
+  AppString.hello: "你好",
+  AppString.changeTo: "中国人",
+  AppString.welcomeText: "用于大型项目的 GetX 架构",
 };

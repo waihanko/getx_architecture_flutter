@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getx_architecture/app/constant/resources/app_colors.dart';
 import 'package:getx_architecture/app/constant/resources/app_dimens.dart';
 import 'package:getx_architecture/app/constant/translation/app_translation.dart';
@@ -6,11 +8,6 @@ import 'package:getx_architecture/app/features/change_language/controller/change
 import 'package:getx_architecture/app/widget/default_app_bar_widget.dart';
 import 'package:getx_architecture/app/widget/secondary_button_widget.dart';
 import 'package:getx_architecture/app/widget/text_view_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/basic.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/preferred_size.dart';
-import 'package:get/get.dart';
 
 class ChangeLanguageScreen extends BaseView<ChangeLanguageController> {
   ChangeLanguageScreen({Key? key}) : super(key: key);
@@ -36,12 +33,15 @@ class ChangeLanguageScreen extends BaseView<ChangeLanguageController> {
           vertical: AppDimens.MARGIN_SMALL,
           horizontal: AppDimens.MARGIN_MEDIUM),
       child: SecondaryButtonWidget(
-          child: const TextViewWidget("Change", textColor: Colors.white,),
+          child: const TextViewWidget(
+            "Change",
+            textColor: Colors.white,
+          ),
           onPress: () {
             controller.changeLanguage(
               AppTranslation
                       .locales[controller.changeLanguageGroupLanguage.value]
-                  ['locale'],
+                  [translationLocaleKey],
             );
           }),
     );
