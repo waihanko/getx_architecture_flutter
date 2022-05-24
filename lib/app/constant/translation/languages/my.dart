@@ -1,5 +1,7 @@
+import 'package:getx_architecture/app/constant/resources/app_string.dart';
+
 final Map<String, String> myLanguage = {
-  'hello': "မင်္ဂလာပါ",
-  'change_to': "မြန်မာ",
-  'welcome_text': "အကြီးစားပရောဂျက်အတွက် GetX Architecture",
+  AppString.hello: "မင်္ဂလာပါ",
+  AppString.changeTo: "မြန်မာ",
+  AppString.welcomeText: "အကြီးစားပရောဂျက်အတွက် GetX Architecture",
 };
