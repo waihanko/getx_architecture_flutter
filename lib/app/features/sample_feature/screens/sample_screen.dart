@@ -53,7 +53,7 @@ class SampleScreen extends BaseView<SampleController> {
                         color: const Color(0xffe45c5c),
                         child: Center(
                           child: TextViewWidget(
-                            controller.dummies[index].name!,
+                            controller.dummies[index].mapTitle!,
                             textColor: Colors.white,
                             fontWeight: FontWeight.bold,
                             textSize: AppDimens.TEXT_REGULAR_2X,

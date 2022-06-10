@@ -8,10 +8,11 @@ import 'package:getx_architecture/app/data/models/dummy_list_response.dart';
 import 'package:getx_architecture/app/data/network/repository/sample_feature/sample_repository.dart';
 import 'package:getx_architecture/app/data/network/repository/sample_feature/sample_repository_impl.dart';
 import 'package:get/get.dart';
+import 'package:getx_architecture/app/features/sample_feature/mapper/sample_mapper.dart';
 
 class SampleController extends BaseController {
   late final SampleRepository _repository = SampleRepositoryImpl();
-  RxList<Data> dummies = RxList.empty();
+  RxList<SampleVO> dummies = RxList.empty();
 
   late PaginationUtils samplePagination = PaginationUtils();
 
@@ -46,8 +47,10 @@ class SampleController extends BaseController {
     resetRefreshController(dummies);
     if (response != null) {
       BaseApiResponse<DummyListResponse> _orderData = response;
+
       DummyListResponse data = _orderData.objectResult;
-      dummies.addAll(data.dummyList!.toList());
+
+      dummies.addAll(SampleMapper(list: data.dummyList).getMapList);
       if (data.dummyList!.isEmpty) {
         Future.delayed(
           const Duration(seconds: 1),
