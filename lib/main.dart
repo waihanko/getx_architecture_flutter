@@ -4,11 +4,13 @@ import 'package:getx_architecture/app/core/binding/initial_binding.dart';
 import 'package:getx_architecture/app/data/local/cache_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_architecture/app/services/firebase_service.dart';
 
 import 'app/constant/translation/app_translation.dart';
 
 void main() async {
   await Get.putAsync<CacheManager>(() async => CacheManager().init());
+  await FirebaseService().initializeFirebase();
   runApp(const MyApp());
 }
 

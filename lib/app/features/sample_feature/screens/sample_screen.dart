@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getx_architecture/app/constant/resources/app_dimens.dart';
 import 'package:getx_architecture/app/constant/routing/app_route.dart';
 import 'package:getx_architecture/app/core/base/base_view.dart';
@@ -5,8 +7,8 @@ import 'package:getx_architecture/app/features/sample_feature/controller/sample_
 import 'package:getx_architecture/app/widget/default_app_bar_widget.dart';
 import 'package:getx_architecture/app/widget/text_view_widget.dart';
 import 'package:getx_architecture/app/widget/view_handling/smart_refresher_parent_view.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+import '../../../constant/resources/app_string.dart';
 
 class SampleScreen extends BaseView<SampleController> {
   SampleScreen({Key? key}) : super(key: key);
@@ -14,9 +16,9 @@ class SampleScreen extends BaseView<SampleController> {
   @override
   PreferredSizeWidget? appBar(BuildContext context) {
     return DefaultAppBar(
-      title: "hello".tr,
+      title: AppString.hello.tr,
       trillingIcon: Icons.language,
-      trillingIconOnClick: ()=> Get.toNamed(Routes.changeLanguageScreen),
+      trillingIconOnClick: () => Get.toNamed(Routes.changeLanguageScreen),
     );
   }
 
@@ -28,16 +30,17 @@ class SampleScreen extends BaseView<SampleController> {
           Container(
             height: 68,
             color: Colors.green,
-            child:  Center(
-              child: TextViewWidget("welcome_text".tr, textSize: 18, textColor: Colors.white),
+            child: Center(
+              child: TextViewWidget(AppString.welcomeText.tr,
+                  textSize: 18, textColor: Colors.white),
             ),
           ),
           Flexible(
             child: SmartRefresherParentView(
               refreshController: controller.refreshController,
               enablePullUp: true,
-              onRefresh:()=> controller.resetAndGetDummyList(),
-              onLoading:()=> controller.getDummyList(),
+              onRefresh: () => controller.resetAndGetDummyList(),
+              onLoading: () => controller.getDummyList(),
               child: CustomScrollView(slivers: [
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
@@ -50,7 +53,7 @@ class SampleScreen extends BaseView<SampleController> {
                         color: const Color(0xffe45c5c),
                         child: Center(
                           child: TextViewWidget(
-                            controller.dummies[index].name!,
+                            controller.dummies[index].mapTitle!,
                             textColor: Colors.white,
                             fontWeight: FontWeight.bold,
                             textSize: AppDimens.TEXT_REGULAR_2X,

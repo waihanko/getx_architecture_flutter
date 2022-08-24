@@ -18,7 +18,7 @@ class BaseApiResponse<T> {
       {dynamic objectResult,
       dynamic listResult,
       int? statusCode,
-      String? message}) {
+      String? message,}) {
     _objectResult = objectResult;
     _listResult = listResult;
     _statusCode = statusCode;

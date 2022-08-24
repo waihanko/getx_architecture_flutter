@@ -4,6 +4,7 @@ import 'package:getx_architecture/app/core/base/base_controller.dart';
 import 'package:getx_architecture/app/widget/text_view_widget.dart';
 import 'package:getx_architecture/app/widget/view_handling/error_handling_widget.dart';
 import 'package:getx_architecture/app/widget/view_handling/full_loading_widget.dart';
+import 'package:getx_architecture/app/widget/view_handling/partial_error_handling_widget.dart';
 import 'package:getx_architecture/app/widget/view_handling/partial_loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -82,6 +83,16 @@ abstract class BaseView<Controller extends BaseController>
       case ViewState.FAILED:
         return ErrorHandlingWidget(
           message: controller.errorMessage,
+          onClickTryAgain: pageState.onClickTryAgain,
+        );
+      case ViewState.PARTIAL_FAILED:
+        return PartialErrorHandlingWidget(
+          message: controller.errorMessage,
+          onClickTryAgain: pageState.onClickTryAgain,
+        );
+      case ViewState.PARTIAL_EMPTY:
+        return PartialErrorHandlingWidget(
+          message: "No Data Found",
           onClickTryAgain: pageState.onClickTryAgain,
         );
       case ViewState.DEFAULT:
