@@ -10,6 +10,7 @@ import 'package:getx_architecture/app/data/exception/unauthorize_exception.dart'
 import 'package:getx_architecture/app/data/local/cache_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:getx_architecture/app/services/socket_service.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
@@ -112,21 +113,22 @@ abstract class BaseController extends GetxController
     }
   }
 
-  // @override
-  // void onInit() {
-  //   super.onInit();
-  //   initSocket();
-  // }
+  @override
+  void onInit() {
+    super.onInit();
+    initSocket();
+  }
 
-  // void initSocket() {
-  //   if (getToken() != null) {
-  //     socket = getSocketInstance();
-  //   }
-  // }
-  //
-  // getSocketInstance() {
-  //   return SocketService.instance.initSocket();
-  // }
+  void initSocket() {
+    // if (getToken() != null) {
+    //   socket = getSocketInstance();
+    // }
+  }
+
+  getSocketInstance() {
+    return SocketService.instance.initSocket();
+  }
+
 
   @override
   void onClose() {
