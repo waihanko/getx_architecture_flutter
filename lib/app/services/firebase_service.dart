@@ -11,7 +11,7 @@ class FirebaseService extends Logger with CacheManager {
     await Firebase.initializeApp();
 
     initializeNotification();
-    
+
   }
 
 
