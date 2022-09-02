@@ -1,20 +1,20 @@
 import 'package:getx_architecture/app/constant/enum/view_state.dart';
-import 'package:getx_architecture/app/data/exception/api_exception.dart';
-import 'package:getx_architecture/app/data/exception/app_exception.dart';
-import 'package:getx_architecture/app/data/exception/base_exception.dart';
-import 'package:getx_architecture/app/data/exception/json_format_exception.dart';
-import 'package:getx_architecture/app/data/exception/network_exception.dart';
-import 'package:getx_architecture/app/data/exception/service_unavailable_exception.dart';
-import 'package:getx_architecture/app/data/exception/timeout_exception.dart';
-import 'package:getx_architecture/app/data/exception/unauthorize_exception.dart';
-import 'package:getx_architecture/app/data/local/cache_manager.dart';
+import 'package:getx_architecture/app/data_models/exception/api_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/app_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/base_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/json_format_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/network_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/service_unavailable_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/timeout_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/unauthorize_exception.dart';
+import 'package:getx_architecture/app/data_sources/local/cache_manager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:getx_architecture/app/services/socket_service.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:socket_io_client/socket_io_client.dart' as io;
 
-import '../../data/exception/not_found_exception.dart';
+import '../../data_models/exception/not_found_exception.dart';
 
 abstract class BaseController extends GetxController
     with CacheManager, GetSingleTickerProviderStateMixin {

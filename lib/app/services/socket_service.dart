@@ -1,4 +1,4 @@
-import 'package:getx_architecture/app/data/local/cache_manager.dart';
+import 'package:getx_architecture/app/data_sources/local/cache_manager.dart';
 import 'package:logger/logger.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 

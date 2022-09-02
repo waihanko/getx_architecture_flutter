@@ -1,4 +1,4 @@
-import '../../../data/models/dummy_list_response.dart';
+import '../../../data_models/responses/dummy_list_response.dart';
 
 class SampleMapper {
   final List<Data>? list;

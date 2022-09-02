@@ -1,4 +1,4 @@
-import 'package:getx_architecture/app/data/exception/base_api_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/base_api_exception.dart';
 
 class ApiException extends BaseApiException {
   ApiException({

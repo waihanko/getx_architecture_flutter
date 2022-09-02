@@ -1,6 +1,6 @@
 import 'package:getx_architecture/app/constant/enum/request_language_enum.dart';
 import 'package:getx_architecture/app/core/config/keys_generator.dart';
-import 'package:getx_architecture/app/data/local/cache_manager.dart';
+import 'package:getx_architecture/app/data_sources/local/cache_manager.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';

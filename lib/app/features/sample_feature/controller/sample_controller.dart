@@ -2,12 +2,12 @@ import 'package:getx_architecture/app/constant/enum/view_state.dart';
 import 'package:getx_architecture/app/core/base/base_controller.dart';
 import 'package:getx_architecture/app/core/utils/app_utils.dart';
 import 'package:getx_architecture/app/core/utils/pagination_utils.dart';
-import 'package:getx_architecture/app/data/base_response/base_api_response.dart';
-import 'package:getx_architecture/app/data/exception/base_exception.dart';
-import 'package:getx_architecture/app/data/models/dummy_list_response.dart';
-import 'package:getx_architecture/app/data/network/repository/sample_feature/sample_repository.dart';
-import 'package:getx_architecture/app/data/network/repository/sample_feature/sample_repository_impl.dart';
+import 'package:getx_architecture/app/data_models/base_response/base_api_response.dart';
+import 'package:getx_architecture/app/data_models/exception/base_exception.dart';
+import 'package:getx_architecture/app/data_models/responses/dummy_list_response.dart';
 import 'package:get/get.dart';
+import 'package:getx_architecture/app/data_sources/network/sample_feature/sample_repository.dart';
+import 'package:getx_architecture/app/data_sources/network/sample_feature/sample_repository_impl.dart';
 import 'package:getx_architecture/app/features/sample_feature/mapper/sample_mapper.dart';
 
 class SampleController extends BaseController {

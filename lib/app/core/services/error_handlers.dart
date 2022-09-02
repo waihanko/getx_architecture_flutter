@@ -2,15 +2,14 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:getx_architecture/app/core/utils/app_utils.dart';
-import 'package:getx_architecture/app/data/exception/api_exception.dart';
-import 'package:getx_architecture/app/data/exception/app_exception.dart';
-import 'package:getx_architecture/app/data/exception/network_exception.dart';
-import 'package:getx_architecture/app/data/exception/service_unavailable_exception.dart';
-import 'package:getx_architecture/app/data/local/cache_manager.dart';
+import 'package:getx_architecture/app/data_models/exception/api_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/app_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/not_found_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/service_unavailable_exception.dart';
+import 'package:getx_architecture/app/data_sources/local/cache_manager.dart';
 import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 
-import '../exception/not_found_exception.dart';
 
 Exception handleError(String error) {
   return AppException(message: error);

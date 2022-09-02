@@ -1,5 +1,5 @@
 import 'package:getx_architecture/app/constant/resources/app_images.dart';
-import 'package:getx_architecture/app/data/view_object/setup_vo.dart';
+import 'package:getx_architecture/app/data_models/view_object/setup_vo.dart';
 
 class LanguageEnums<String> {
   final String languageType;

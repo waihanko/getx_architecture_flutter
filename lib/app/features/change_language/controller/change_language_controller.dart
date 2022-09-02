@@ -4,8 +4,8 @@ import 'package:getx_architecture/app/constant/enum/request_language_enum.dart';
 import 'package:getx_architecture/app/constant/resources/app_string.dart';
 import 'package:getx_architecture/app/core/base/base_controller.dart';
 import 'package:getx_architecture/app/core/utils/app_utils.dart';
-import 'package:getx_architecture/app/data/local/cache_manager.dart';
-import 'package:getx_architecture/app/data/view_object/setup_vo.dart';
+import 'package:getx_architecture/app/data_sources/local/cache_manager.dart';
+import 'package:getx_architecture/app/data_models/view_object/setup_vo.dart';
 
 class ChangeLanguageController extends BaseController {
   RxInt changeLanguageGroupLanguage = 0.obs;

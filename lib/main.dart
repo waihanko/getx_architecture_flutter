@@ -1,7 +1,7 @@
 import 'package:getx_architecture/app/constant/routing/app_pages.dart';
 import 'package:getx_architecture/app/constant/routing/app_route.dart';
 import 'package:getx_architecture/app/core/binding/initial_binding.dart';
-import 'package:getx_architecture/app/data/local/cache_manager.dart';
+import 'package:getx_architecture/app/data_sources/local/cache_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_architecture/app/services/firebase_service.dart';

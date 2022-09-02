@@ -8,9 +8,9 @@ class DummyListResponse {
   }
 
   DummyListResponse.fromJson(dynamic json) {
-    if (json['data'] != null) {
+    if (json['data_models'] != null) {
       _data = [];
-      json['data'].forEach((v) {
+      json['data_models'].forEach((v) {
         _data?.add(Data.fromJson(v));
       });
     }
@@ -31,7 +31,7 @@ class DummyListResponse {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     if (_data != null) {
-      map['data'] = _data?.map((v) => v.toJson()).toList();
+      map['data_models'] = _data?.map((v) => v.toJson()).toList();
     }
     return map;
   }

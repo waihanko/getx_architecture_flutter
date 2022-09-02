@@ -1,8 +1,8 @@
-import 'package:getx_architecture/app/core/base_remote_source.dart';
-import 'package:getx_architecture/app/data/base_response/base_api_response.dart';
-import 'package:getx_architecture/app/data/models/dummy_list_response.dart';
-import 'package:getx_architecture/app/data/network/repository/sample_feature/sample_repository.dart';
 import 'package:dio/dio.dart';
+import 'package:getx_architecture/app/core/base/base_remote_source.dart';
+import 'package:getx_architecture/app/data_models/base_response/base_api_response.dart';
+import 'package:getx_architecture/app/data_models/responses/dummy_list_response.dart';
+import 'package:getx_architecture/app/data_sources/network/sample_feature/sample_repository.dart';
 
 class SampleRepositoryImpl extends BaseRemoteSource
     implements SampleRepository {

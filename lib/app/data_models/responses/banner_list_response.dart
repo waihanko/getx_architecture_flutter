@@ -8,9 +8,9 @@ class BannerListResponse {
   });
 
   BannerListResponse.fromJson(dynamic json) {
-    if (json['data'] != null) {
+    if (json['data_models'] != null) {
       banners = [];
-      json['data'].forEach((v) {
+      json['data_models'].forEach((v) {
         banners?.add(Banners.fromJson(v));
       });
     }
@@ -27,7 +27,7 @@ class BannerListResponse {
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     if (banners != null) {
-      map['data'] = banners?.map((v) => v.toJson()).toList();
+      map['data_models'] = banners?.map((v) => v.toJson()).toList();
     }
     map['status'] = status;
     map['message'] = message;

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:getx_architecture/app/data/exception/base_api_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/base_api_exception.dart';
 
 class UnauthorizedException extends BaseApiException {
   UnauthorizedException(String message)

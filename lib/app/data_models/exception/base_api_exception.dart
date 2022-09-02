@@ -1,4 +1,4 @@
-import 'package:getx_architecture/app/data/exception/app_exception.dart';
+import 'package:getx_architecture/app/data_models/exception/app_exception.dart';
 
 abstract class BaseApiException extends AppException {
   final int httpCode;

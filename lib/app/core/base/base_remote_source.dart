@@ -1,6 +1,6 @@
-import 'package:getx_architecture/app/data/exception/base_exception.dart';
-import 'package:getx_architecture/app/data/network/error_handlers.dart';
-import 'package:getx_architecture/app/data/network/services/dio_provider.dart';
+import 'package:getx_architecture/app/core/services/dio_provider.dart';
+import 'package:getx_architecture/app/core/services/error_handlers.dart';
+import 'package:getx_architecture/app/data_models/exception/base_exception.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get_connect/http/src/status/http_status.dart';
