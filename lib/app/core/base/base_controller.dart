@@ -36,10 +36,6 @@ abstract class BaseController extends GetxController
   updatePageState(ViewState state, {Function? onClickTryAgain}) =>
       _pageSateController(PageStateHandler(state, onClickTryAgain: onClickTryAgain));
 
-  showPartialLoading() => updatePageState(ViewState.LOADING);
-
-  showFullScreenLoading() => updatePageState(ViewState.FULL_SCREEN_LOADING);
-
   dynamic callAPIService<T>(
     Future<T> future, {
     Function(BaseException exception)? onError,

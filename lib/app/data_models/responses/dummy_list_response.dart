@@ -1,65 +1,36 @@
 class DummyListResponse {
   DummyListResponse({
-      List<Data>? data,
-    Pagination? pagination,}){
-    _data = data;
-    _pagination = pagination;
-
-  }
+      this.dummyList,
+      this.pagination, 
+      this.statusCode, 
+      this.message,});
 
   DummyListResponse.fromJson(dynamic json) {
-    if (json['data_models'] != null) {
-      _data = [];
-      json['data_models'].forEach((v) {
-        _data?.add(Data.fromJson(v));
+    if (json['data'] != null) {
+      dummyList = [];
+      json['data'].forEach((v) {
+        dummyList?.add(Data.fromJson(v));
       });
     }
-    _pagination = json['pagination'] != null
-        ? Pagination.fromJson(json['pagination'])
-        : null;
+    pagination = json['pagination'] != null ? Pagination.fromJson(json['pagination']) : null;
+    statusCode = json['statusCode'];
+    message = json['message'];
   }
-
-  List<Data>? _data;
-
-  Pagination? _pagination;
-
-  List<Data>? get dummyList => _data;
-
-  Pagination? get pagination => _pagination;
-
+  List<Data>? dummyList;
+  Pagination? pagination;
+  int? statusCode;
+  String? message;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    if (_data != null) {
-      map['data_models'] = _data?.map((v) => v.toJson()).toList();
+    if (dummyList != null) {
+      map['data'] = dummyList?.map((v) => v.toJson()).toList();
     }
-    return map;
-  }
-
-}
-
-class Data {
-  Data({
-      int? id, 
-      String? name,}){
-    _id = id;
-    _name = name;
-}
-
-  Data.fromJson(dynamic json) {
-    _id = json['id'];
-    _name = json['name'];
-  }
-  int? _id;
-  String? _name;
-
-  int? get id => _id;
-  String? get name => _name;
-
-  Map<String, dynamic> toJson() {
-    final map = <String, dynamic>{};
-    map['id'] = _id;
-    map['name'] = _name;
+    if (pagination != null) {
+      map['pagination'] = pagination?.toJson();
+    }
+    map['statusCode'] = statusCode;
+    map['message'] = message;
     return map;
   }
 
@@ -67,43 +38,50 @@ class Data {
 
 class Pagination {
   Pagination({
-    int? lastPage,
-    int? currentPage,
-    int? perPage,
-    int? totalItems,
-  }) {
-    _lastPage = lastPage;
-    _currentPage = currentPage;
-    _perPage = perPage;
-    _totalItems = totalItems;
-  }
+      this.lastPage, 
+      this.currentPage, 
+      this.perPage, 
+      this.totalItems,});
 
   Pagination.fromJson(dynamic json) {
-    _lastPage = json['lastPage'];
-    _currentPage = json['currentPage'];
-    _perPage = json['perPage'];
-    _totalItems = json['totalItems'];
+    lastPage = json['lastPage'];
+    currentPage = json['currentPage'];
+    perPage = json['perPage'];
+    totalItems = json['totalItems'];
   }
-
-  int? _lastPage;
-  int? _currentPage;
-  int? _perPage;
-  int? _totalItems;
-
-  int? get lastPage => _lastPage;
-
-  int? get currentPage => _currentPage;
-
-  int? get perPage => _perPage;
-
-  int? get totalItems => _totalItems;
+  int? lastPage;
+  int? currentPage;
+  int? perPage;
+  int? totalItems;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
-    map['lastPage'] = _lastPage;
-    map['currentPage'] = _currentPage;
-    map['perPage'] = _perPage;
-    map['totalItems'] = _totalItems;
+    map['lastPage'] = lastPage;
+    map['currentPage'] = currentPage;
+    map['perPage'] = perPage;
+    map['totalItems'] = totalItems;
     return map;
   }
+
+}
+
+class Data {
+  Data({
+      this.id, 
+      this.name,});
+
+  Data.fromJson(dynamic json) {
+    id = json['id'];
+    name = json['name'];
+  }
+  int? id;
+  String? name;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['name'] = name;
+    return map;
+  }
+
 }

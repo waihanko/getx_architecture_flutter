@@ -10,7 +10,7 @@ import 'app/constant/translation/app_translation.dart';
 
 void main() async {
   await Get.putAsync<CacheManager>(() async => CacheManager().init());
-  await FirebaseService().initializeFirebase();
+  //await FirebaseService().initializeFirebase();
   runApp(const MyApp());
 }
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Get-X Archi',
       translationsKeys: AppTranslation.translationsKeys,
       locale: Get.find<CacheManager>().getLocale(),
-      getPages: AppPages.pages,
+      getPages: AppPages.routes,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

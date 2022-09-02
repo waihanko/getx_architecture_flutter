@@ -7,6 +7,5 @@ class SampleBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut(() => SampleController());
-    Get.lazyPut(() => SampleMapper());
   }
 }

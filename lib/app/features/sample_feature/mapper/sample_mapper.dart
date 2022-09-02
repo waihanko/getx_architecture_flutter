@@ -1,15 +1,14 @@
 import '../../../data_models/responses/dummy_list_response.dart';
 
 class SampleMapper {
-  final List<Data>? list;
 
-  List<SampleVO> get getMapList => list!
+
+  static List<SampleVO>  getMapList(List<Data>? list) => list!
       .map(
         (e) => SampleVO(id: e.id!, title: e.name!),
       )
       .toList();
-
-  SampleMapper({this.list}); // final int? id;
+ // final int? id;
 
 }
 

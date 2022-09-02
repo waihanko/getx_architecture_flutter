@@ -32,11 +32,9 @@ class SampleController extends BaseController {
   void getDummyList() async {
     if (samplePagination.isPageAvailable()) {
       final repoService = _repository.getDummyData();
-
-      /// change [showPartialLoading()] to [showFullScreenLoading()] if u want full screen loading
+      if (dummies.isEmpty) updatePageState(ViewState.LOADING);
       await callAPIService(
         repoService,
-        onStart: dummies.isEmpty ? () => showPartialLoading() : null,
         onSuccess: _handleDummyListResponseSuccess,
         onError: _handleDummyListResponseError,
       );
@@ -49,8 +47,7 @@ class SampleController extends BaseController {
       BaseApiResponse<DummyListResponse> _orderData = response;
 
       DummyListResponse data = _orderData.objectResult;
-
-      dummies.addAll(SampleMapper(list: data.dummyList).getMapList);
+      dummies.addAll(SampleMapper.getMapList(data.dummyList));
       if (data.dummyList!.isEmpty) {
         Future.delayed(
           const Duration(seconds: 1),
@@ -75,4 +72,5 @@ class SampleController extends BaseController {
     }
     return;
   }
+
 }

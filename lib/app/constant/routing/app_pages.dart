@@ -11,7 +11,7 @@ class AppPages {
 
   static const initial = Routes.sampleScreen;
 
-  static final pages = [
+  static final routes = [
     GetPage(
       name: initial,
       page: () => SampleScreen(),
