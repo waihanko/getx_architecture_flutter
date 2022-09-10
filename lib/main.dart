@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_architecture/app/constant/resources/app_theme.dart';
 import 'package:getx_architecture/app/constant/routing/app_pages.dart';
 import 'package:getx_architecture/app/constant/routing/app_route.dart';
 import 'package:getx_architecture/app/core/binding/initial_binding.dart';
@@ -25,20 +26,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ChangeThemeController themeController = Get.find<ChangeThemeController>();
-    return Obx(
-      ()=> GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Get-X Archi',
-        translationsKeys: AppTranslation.translationsKeys,
-        locale: Get.find<CacheManager>().getLocale(),
-        getPages: AppPages.pages,
-        theme: ThemeData.light(),
-        darkTheme: ThemeData.dark(),
-        themeMode:
-            themeController.isDarkMode.value ? ThemeMode.dark : ThemeMode.light,
-        initialRoute: Routes.sampleScreen,
-        initialBinding: InitialBinding(),
-      ),
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Get-X Archi',
+      translationsKeys: AppTranslation.translationsKeys,
+      locale: Get.find<CacheManager>().getLocale(),
+      getPages: AppPages.pages,
+      theme:  AppThemes.lightTheme,
+      darkTheme:  AppThemes.darkTheme,
+      themeMode: ThemeMode.system,
+      initialRoute: Routes.sampleScreen,
+      initialBinding: InitialBinding(),
     );
   }
 }

@@ -31,8 +31,8 @@ class _SecondaryButtonWidgetState extends State<SecondaryButtonWidget> {
       child: widget.child ?? const SizedBox(),
       color: widget.bgColor,
       highlightElevation: 0,
-      highlightColor: AppColors.pureBlackColor.withOpacity(0.1),
-      splashColor: AppColors.pureBlackColor.withOpacity(0.1),
+      highlightColor: AppColors.primaryColor.withOpacity(0.1),
+      splashColor: AppColors.primaryColor.withOpacity(0.1),
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(widget.height! * widget.radiusFactor),

@@ -13,6 +13,7 @@ import '../../features/change_theme/controller/change_theme_controller.dart';
 abstract class BaseView<Controller extends BaseController>
     extends GetView<Controller> {
   final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
+  ThemeData get appTheme => Theme.of(Get.context!);
 
   BaseView({Key? key}) : super(key: key);
 
@@ -46,12 +47,12 @@ abstract class BaseView<Controller extends BaseController>
 
   Color pageBackgroundColor() {
     // return Colors.amber;
-    return Theme.of(Get.context!).backgroundColor;
+    return appTheme.canvasColor;
   }
 
   Color statusBarColor() {
     // return Colors.amber;
-    return Theme.of(Get.context!).backgroundColor;
+    return appTheme.canvasColor;
   }
 
   Widget? floatingActionButton() {

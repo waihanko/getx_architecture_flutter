@@ -1,16 +1,26 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_architecture/app/core/base/base_controller.dart';
 
 class ChangeThemeController extends BaseController{
 
-  RxBool isDarkMode= false.obs;
+  RxBool isLightTheme= false.obs;
+
 
   void setDarkMode(){
-    isDarkMode(true);
+    isLightTheme(true);
+
+    Get.changeThemeMode(
+      ThemeMode.dark ,
+    );
   }
 
   void setLightMode(){
-    isDarkMode(false);
+    isLightTheme(false);
+
+    Get.changeThemeMode(
+      ThemeMode.light ,
+    );
   }
 
 }
