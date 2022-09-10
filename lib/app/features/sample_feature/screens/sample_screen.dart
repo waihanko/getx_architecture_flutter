@@ -18,7 +18,7 @@ class SampleScreen extends BaseView<SampleController> {
     return DefaultAppBar(
       title: AppString.hello.tr,
       trillingIcon: Icons.language,
-      trillingIconOnClick: () => Get.toNamed(Routes.changeLanguageScreen),
+      trillingIconOnClick: () => Get.toNamed(Routes.changeTheme),
     );
   }
 
