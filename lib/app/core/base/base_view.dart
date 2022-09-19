@@ -1,17 +1,19 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:getx_architecture/app/constant/enum/view_state.dart';
-import 'package:getx_architecture/app/constant/resources/app_colors.dart';
 import 'package:getx_architecture/app/core/base/base_controller.dart';
 import 'package:getx_architecture/app/widget/text_view_widget.dart';
 import 'package:getx_architecture/app/widget/view_handling/error_handling_widget.dart';
 import 'package:getx_architecture/app/widget/view_handling/full_loading_widget.dart';
 import 'package:getx_architecture/app/widget/view_handling/partial_error_handling_widget.dart';
 import 'package:getx_architecture/app/widget/view_handling/partial_loading_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
+import '../../features/change_theme/controller/change_theme_controller.dart';
 
 abstract class BaseView<Controller extends BaseController>
     extends GetView<Controller> {
   final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
+  ThemeData get appTheme => Theme.of(Get.context!);
 
   BaseView({Key? key}) : super(key: key);
 
@@ -21,8 +23,10 @@ abstract class BaseView<Controller extends BaseController>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: pageBackgroundColor(),
+
+    return  Scaffold(
+      // backgroundColor:
+      //     themeController.isDarkMode.value ? Colors.black : Colors.white,
       key: globalKey,
       appBar: appBar(context),
       floatingActionButton: floatingActionButton(),
@@ -33,7 +37,7 @@ abstract class BaseView<Controller extends BaseController>
           body(context),
           Center(
             child: Obx(
-              () => getErrorHandlingView(controller.pageState),
+                  () => getErrorHandlingView(controller.pageState),
             ),
           ),
         ],
@@ -42,11 +46,13 @@ abstract class BaseView<Controller extends BaseController>
   }
 
   Color pageBackgroundColor() {
-    return AppColors.pageBackground;
+    // return Colors.amber;
+    return appTheme.canvasColor;
   }
 
   Color statusBarColor() {
-    return AppColors.pageBackground;
+    // return Colors.amber;
+    return appTheme.canvasColor;
   }
 
   Widget? floatingActionButton() {
