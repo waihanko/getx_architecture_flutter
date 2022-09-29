@@ -41,7 +41,8 @@ class Pagination {
       this.lastPage, 
       this.currentPage, 
       this.perPage, 
-      this.totalItems,});
+      this.totalItems,
+  });
 
   Pagination.fromJson(dynamic json) {
     lastPage = json['lastPage'];
@@ -68,19 +69,24 @@ class Pagination {
 class Data {
   Data({
       this.id, 
-      this.name,});
+      this.name,
+      this.video,
+  });
 
   Data.fromJson(dynamic json) {
     id = json['id'];
     name = json['name'];
+    video = json['video'];
   }
   int? id;
   String? name;
+  String? video;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
     map['name'] = name;
+    map['video'] = name;
     return map;
   }
 

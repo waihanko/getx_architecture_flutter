@@ -40,6 +40,7 @@ dependencies:
   pull_to_refresh: ^2.0.0
   socket_io_client: ^1.0.1
   loading_indicator: ^3.0.2
+  better_player: ^0.0.83
 
   #firebase
 #  firebase_messaging: ^11.2.14

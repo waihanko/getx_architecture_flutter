@@ -8,7 +8,7 @@ class SampleRepositoryImpl extends BaseRemoteSource
     implements SampleRepository {
   @override
   Future<BaseApiResponse<DummyListResponse>> getDummyData() async {
-    var endpoint = "https://jsonkeeper.com/b/OGXT";
+    var endpoint = "https://api.npoint.io/384501a2494f64a6846e";
     var dioCall = dioClient.get(endpoint);
     try {
       return callApiWithErrorParser(dioCall).then(

@@ -5,7 +5,7 @@ class SampleMapper {
 
   static List<SampleVO>  getMapList(List<Data>? list) => list!
       .map(
-        (e) => SampleVO(id: e.id!, title: e.name!, video: e.video!),
+        (e) => SampleVO(id: e.id!, title: e.name!),
       )
       .toList();
  // final int? id;
@@ -14,14 +14,9 @@ class SampleMapper {
 
 class SampleVO {
   final String title;
-  final String video;
   final int id;
 
-  SampleVO({
-    required this.title,
-    required this.id,
-    required this.video,
-  });
+  SampleVO({required this.title, required this.id});
 
   String? get mapTitle =>
       "${title.substring(title.length - 1, title.length)} Han Gyi ";

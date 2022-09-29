@@ -4,13 +4,10 @@ import 'package:getx_architecture/app/constant/resources/app_theme.dart';
 import 'package:getx_architecture/app/constant/routing/app_pages.dart';
 import 'package:getx_architecture/app/constant/routing/app_route.dart';
 import 'package:getx_architecture/app/core/binding/initial_binding.dart';
-import 'package:getx_architecture/app/data/local/cache_manager.dart';
 import 'package:getx_architecture/app/features/change_theme/binding/change_theme_binding.dart';
 import 'package:getx_architecture/app/features/change_theme/controller/change_theme_controller.dart';
 import 'package:getx_architecture/app/data_sources/local/cache_manager.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:getx_architecture/app/services/firebase_service.dart';
+
 
 import 'app/constant/translation/app_translation.dart';
 
@@ -34,11 +31,11 @@ class MyApp extends StatelessWidget {
       title: 'Get-X Archi',
       translationsKeys: AppTranslation.translationsKeys,
       locale: Get.find<CacheManager>().getLocale(),
-      getPages: AppPages.pages,
+      getPages: AppPages.routes,
       theme:  AppThemes.lightTheme,
       darkTheme:  AppThemes.darkTheme,
       themeMode: ThemeMode.system,
-      initialRoute: Routes.sampleScreen,
+      initialRoute: Routes.reelScreen,
       initialBinding: InitialBinding(),
     );
   }
