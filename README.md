@@ -18,7 +18,7 @@ This project frame is ready to use for your large scale project and it will save
 ## To-Do
 - If request API fail when you test
   1.  copy json content from 'sample_feature.json'
-  2.  paste it to 'https://jsonkeeper.com/' website
+  2.  paste it to 'https://www.npoint.io/' website
   3.  click save and copy generated link.
   4.  set endpoint in 'SampleRepositoryImpl.dart'.
   5.  Done. :-) 
