@@ -10,6 +10,7 @@ This project frame is ready to use for your large scale project and it will save
 - Cache Manager integrated using GetStorage 
 - Sample API Call and 'Simple feature' implementation for you
 - Localization
+- Theming
 
 
 ## Note
