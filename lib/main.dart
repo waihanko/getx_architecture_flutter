@@ -25,7 +25,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ChangeThemeController themeController = Get.find<ChangeThemeController>();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Get-X Archi',
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
       theme:  AppThemes.lightTheme,
       darkTheme:  AppThemes.darkTheme,
       themeMode: ThemeMode.system,
-      initialRoute: Routes.reelScreen,
+      initialRoute: Routes.sampleScreen,
       initialBinding: InitialBinding(),
     );
   }

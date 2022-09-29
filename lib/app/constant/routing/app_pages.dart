@@ -11,7 +11,7 @@ import 'package:getx_architecture/app/features/sample_feature/screens/sample_scr
 class AppPages {
   AppPages._();
 
-  static const initial = Routes.reelScreen;
+  static const initial = Routes.sampleScreen;
 
   static final routes = [
     GetPage(
