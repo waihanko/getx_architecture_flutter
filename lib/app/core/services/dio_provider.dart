@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-class DioProvider {
+class DioProvider with CacheManager {
   static const String baseUrl = "BuildConfig.instance.config.baseUrl";
   static const String chatBaseUrl = "BuildConfig.instance.config.chatBaseUrl";
   static Dio? _instance;
