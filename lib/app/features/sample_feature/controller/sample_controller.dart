@@ -9,11 +9,13 @@ import 'package:get/get.dart';
 import 'package:getx_architecture/app/data_sources/network/sample_feature/sample_repository.dart';
 import 'package:getx_architecture/app/data_sources/network/sample_feature/sample_repository_impl.dart';
 import 'package:getx_architecture/app/features/sample_feature/mapper/sample_mapper.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class SampleController extends BaseController {
   late final SampleRepository _repository = SampleRepositoryImpl();
   RxList<SampleVO> dummies = RxList.empty();
 
+  RefreshController refreshController = RefreshController();
   late PaginationUtils samplePagination = PaginationUtils();
 
   @override
@@ -42,7 +44,7 @@ class SampleController extends BaseController {
   }
 
   void _handleDummyListResponseSuccess(response) async {
-    resetRefreshController(dummies);
+    resetRefreshController(refreshController);
     if (response != null) {
       BaseApiResponse<DummyListResponse> _orderData = response;
 
@@ -61,7 +63,7 @@ class SampleController extends BaseController {
   }
 
   void _handleDummyListResponseError(BaseException exception) {
-    resetRefreshController(dummies);
+    resetRefreshController(refreshController);
     if (dummies.isEmpty) {
       updatePageState(
         ViewState.FAILED,

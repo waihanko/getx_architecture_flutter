@@ -20,11 +20,6 @@ abstract class BaseController extends GetxController
     with CacheManager, GetSingleTickerProviderStateMixin {
   final logoutController = false.obs;
 
-  //Reload the page
-  RefreshController _refreshController = RefreshController();
-
-  RefreshController get refreshController => _refreshController;
-
   io.Socket? socket;
 
   //Controls page state
@@ -94,14 +89,9 @@ abstract class BaseController extends GetxController
 
   showSuccessMessage(String msg) => _successMessageController(msg);
 
-  void setRefreshController(RefreshController refreshController) {
-    _refreshController = refreshController;
-  }
 
-
-  void resetRefreshController<T>(RxList<T> dataList) {
+  void resetRefreshController<T>(RefreshController _refreshController) {
     if (_refreshController.isRefresh) {
-      dataList.clear();
       _refreshController.refreshCompleted();
     }
     if (_refreshController.isLoading) {
@@ -129,7 +119,6 @@ abstract class BaseController extends GetxController
   @override
   void onClose() {
     _messageController.close();
-    _refreshController.dispose();
     _pageSateController.close();
     super.onClose();
   }
