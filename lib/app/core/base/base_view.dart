@@ -3,16 +3,15 @@ import 'package:get/get.dart';
 import 'package:getx_architecture/app/constant/enum/view_state.dart';
 import 'package:getx_architecture/app/core/base/base_controller.dart';
 import 'package:getx_architecture/app/widget/text_view_widget.dart';
-import 'package:getx_architecture/app/widget/view_handling/error_handling_widget.dart';
+import 'package:getx_architecture/app/widget/view_handling/full_error_widget.dart';
 import 'package:getx_architecture/app/widget/view_handling/full_loading_widget.dart';
-import 'package:getx_architecture/app/widget/view_handling/partial_error_handling_widget.dart';
+import 'package:getx_architecture/app/widget/view_handling/partial_error_.dart';
 import 'package:getx_architecture/app/widget/view_handling/partial_loading_widget.dart';
-
-import '../../features/change_theme/controller/change_theme_controller.dart';
 
 abstract class BaseView<Controller extends BaseController>
     extends GetView<Controller> {
   final GlobalKey<ScaffoldState> globalKey = GlobalKey<ScaffoldState>();
+
   ThemeData get appTheme => Theme.of(Get.context!);
 
   BaseView({Key? key}) : super(key: key);
@@ -21,12 +20,13 @@ abstract class BaseView<Controller extends BaseController>
 
   PreferredSizeWidget? appBar(BuildContext context);
 
+  bool showBgImage() {
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
-
-    return  Scaffold(
-      // backgroundColor:
-      //     themeController.isDarkMode.value ? Colors.black : Colors.white,
+    return Scaffold(
       key: globalKey,
       appBar: appBar(context),
       floatingActionButton: floatingActionButton(),
@@ -37,7 +37,7 @@ abstract class BaseView<Controller extends BaseController>
           body(context),
           Center(
             child: Obx(
-                  () => getErrorHandlingView(controller.pageState),
+              () => getErrorHandlingView(controller.pageState),
             ),
           ),
         ],
@@ -46,12 +46,10 @@ abstract class BaseView<Controller extends BaseController>
   }
 
   Color pageBackgroundColor() {
-    // return Colors.amber;
     return appTheme.canvasColor;
   }
 
   Color statusBarColor() {
-    // return Colors.amber;
     return appTheme.canvasColor;
   }
 
@@ -81,24 +79,24 @@ abstract class BaseView<Controller extends BaseController>
 
   Widget getErrorHandlingView(PageStateHandler pageState) {
     switch (pageState.viewState) {
-      case ViewState.EMPTYLIST:
-        return ErrorHandlingWidget(
+      case ViewState.FULL_EMPTY_LIST:
+        return FullErrorWidget(
           message: "No Data Found",
+          onClickTryAgain: pageState.onClickTryAgain,
+        );
+      case ViewState.EMPTY_LIST:
+        return PartialErrorWidget(
+          message: "No Data Found",
+          onClickTryAgain: pageState.onClickTryAgain,
+        );
+      case ViewState.FULL_FAILED:
+        return FullErrorWidget(
+          message: controller.errorMessage,
           onClickTryAgain: pageState.onClickTryAgain,
         );
       case ViewState.FAILED:
-        return ErrorHandlingWidget(
+        return PartialErrorWidget(
           message: controller.errorMessage,
-          onClickTryAgain: pageState.onClickTryAgain,
-        );
-      case ViewState.PARTIAL_FAILED:
-        return PartialErrorHandlingWidget(
-          message: controller.errorMessage,
-          onClickTryAgain: pageState.onClickTryAgain,
-        );
-      case ViewState.PARTIAL_EMPTY:
-        return PartialErrorHandlingWidget(
-          message: "No Data Found",
           onClickTryAgain: pageState.onClickTryAgain,
         );
       case ViewState.DEFAULT:
@@ -107,20 +105,10 @@ abstract class BaseView<Controller extends BaseController>
         return const SizedBox();
       case ViewState.LOADING:
         return _showPartialLoading();
-      case ViewState.FULL_SCREEN_LOADING:
+      case ViewState.FULL_LOADING:
         return _showFullScreenLoading();
-      case ViewState.UPDATED:
-        return const SizedBox();
-      case ViewState.CREATED:
-        return const SizedBox();
       case ViewState.NO_INTERNET:
         return const TextViewWidget("No Internet");
-      case ViewState.MESSAGE:
-        return const SizedBox();
-      case ViewState.UNAUTHORIZED:
-        return const SizedBox();
-      case ViewState.INITIAL:
-        return const SizedBox();
     }
   }
 }

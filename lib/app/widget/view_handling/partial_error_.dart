@@ -5,12 +5,12 @@ import 'package:getx_architecture/app/constant/resources/app_dimens.dart';
 import 'package:getx_architecture/app/widget/text_view_widget.dart';
 import '../secondary_button_widget.dart';
 
-class PartialErrorHandlingWidget extends StatelessWidget {
+class PartialErrorWidget extends StatelessWidget {
   final String title;
   final String message;
   final Function? onClickTryAgain;
 
-  const PartialErrorHandlingWidget({
+  const PartialErrorWidget({
     this.title = "Oh no!",
     this.message = "Something went wrong!",
     this.onClickTryAgain,
