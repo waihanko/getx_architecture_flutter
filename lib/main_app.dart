@@ -3,22 +3,10 @@ import 'package:get/get.dart';
 import 'package:getx_architecture/app/constant/resources/app_theme.dart';
 import 'package:getx_architecture/app/constant/routing/app_pages.dart';
 import 'package:getx_architecture/app/constant/routing/app_route.dart';
+import 'package:getx_architecture/app/constant/translation/app_translation.dart';
 import 'package:getx_architecture/app/core/binding/initial_binding.dart';
-import 'package:getx_architecture/app/features/change_theme/binding/change_theme_binding.dart';
-import 'package:getx_architecture/app/features/change_theme/controller/change_theme_controller.dart';
+import 'package:getx_architecture/app/core/config/flavors.dart';
 import 'package:getx_architecture/app/data_sources/local/cache_manager.dart';
-
-
-import 'app/constant/translation/app_translation.dart';
-
-void main() async {
-  await Get.putAsync<CacheManager>(() async => CacheManager().init());
-  // await FirebaseService().initializeFirebase();
-  ChangeThemeBindings().dependencies();
-  runApp(
-    const MyApp(),
-  );
-}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -27,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Get-X Archi',
+      title: F.title,
       translationsKeys: AppTranslation.translationsKeys,
       locale: Get.find<CacheManager>().getLocale(),
       getPages: AppPages.routes,
@@ -39,3 +27,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+

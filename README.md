@@ -11,6 +11,7 @@ This project frame is ready to use for your large scale project and it will save
 - Sample API Call and 'Simple feature' implementation for you
 - Localization
 - Theming
+- Flavour
 
 
 ## Note
@@ -19,10 +20,12 @@ This project frame is ready to use for your large scale project and it will save
 ## To-Do
 - If request API fail when you test
   1.  copy json content from 'sample_feature.json'
-  2.  paste it to 'https://www.npoint.io/' website
-  3.  click save and copy generated link.
-  4.  set endpoint in 'SampleRepositoryImpl.dart'.
-  5.  Done. :-) 
+  2.  paste it to `https://www.npoint.io/` website
+  3.  click save and copy generated link(`baseURL`).
+  4.  change `baseURL` at in `assets/flavour_envs/dummy.config.json`(development | local | production).
+  5.  Since adding flavours you need to run `flutter pub run flutter_flavorizr`
+  6.  Done. :-)
+
 
 
 

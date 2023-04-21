@@ -1,0 +1,6 @@
+{
+  "baseUrl": "https://api.npoint.io/384501a2494f64a6846e",
+  "supabaseUrl": "localhost:52431",
+  "supabaseAnonKey": "",
+  "supabaseAuthCallbackUrlHostname": null
+}
