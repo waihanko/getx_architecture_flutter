@@ -10,7 +10,6 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Get.putAsync<CacheManager>(() async => CacheManager().init());
   // await FirebaseService().initializeFirebase();
-  await FlavourManager().init(Flavor.development);
   ChangeThemeBindings().dependencies();
   runApp(
     const MyApp(),
