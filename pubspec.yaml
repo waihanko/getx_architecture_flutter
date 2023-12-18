@@ -55,6 +55,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   change_app_package_name: ^1.0.0
+  flutter_flavorizr: ^2.1.3
 
 dependency_overrides:
   pull_to_refresh:
@@ -81,6 +82,44 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - development.config.json
+    - local.config.json
+    - production.config.json
+
+flavorizr:
+  app:
+    android:
+      flavorDimensions: "flavor-type"
+    ios:
+
+  flavors:
+    local:
+      app:
+        name: "getx_architecture Local"
+
+      android:
+        applicationId: "com.addtotech.getx_architecture.local"
+      ios:
+        bundleId: "com.addtotech.getx_architecture.local"
+
+    development:
+      app:
+        name: "getx_architecture Development"
+
+      android:
+        applicationId: "com.addtotech.getx_architecture.dev"
+      ios:
+        bundleId: "com.addtotech.getx_architecture.dev"
+
+    production:
+      app:
+        name: "getx_architecture Production"
+
+      android:
+        applicationId: "com.addtotech.getx_architecture"
+      ios:
+        bundleId: "com.addtotech.getx_architecture"
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
