@@ -1,3 +1,4 @@
+
 import 'package:getx_architecture/app/constant/enum/view_state.dart';
 import 'package:getx_architecture/app/data_models/exception/api_exception.dart';
 import 'package:getx_architecture/app/data_models/exception/app_exception.dart';

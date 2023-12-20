@@ -5,8 +5,10 @@ import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../config/flavour_manager.dart';
+
 class DioProvider with CacheManager {
-  static const String baseUrl = "BuildConfig.instance.config.baseUrl";
+  static String baseUrl = FlavourManager.env!.baseUrl??"";
   static const String chatBaseUrl = "BuildConfig.instance.config.chatBaseUrl";
   static Dio? _instance;
 
@@ -24,31 +26,22 @@ class DioProvider with CacheManager {
       baseUrl: baseUrl,
       connectTimeout: 60 * 1000,
       receiveTimeout: 60 * 1000,
-      headers: _addHeader());
+      headers: _getHeader());
 
-  static Dio get httpDio {
-    if (_instance == null) {
-      _instance = Dio(_options);
-      _addHeader();
-      _instance!.interceptors.add(_prettyDioLogger);
-      return _instance!;
-    } else {
-      _addHeader();
-      _instance!.interceptors.clear();
-      _instance!.interceptors.add(_prettyDioLogger);
-      return _instance!;
-    }
-  }
-
-  ///returns a Dio client with Access token in header
-  ///Also adds a token refresh interceptor which retry the request when it's unauthorized
+  ///Returns a Dio client with Access token in header
   static Dio get dioWithHeaderToken {
     _addInterceptors();
-    _addHeader();
+    _instance?.options.headers = _getHeader();
     return _instance!;
   }
 
-  static _addHeader() {
+  static _addInterceptors() {
+    _instance ??= Dio(_options);
+    _instance!.interceptors.clear();
+    _instance!.interceptors.add(_prettyDioLogger);
+  }
+
+  static _getHeader() {
     String? authToken;
     var prefData =
         Get.find<CacheManager>().getString(CacheManagerKey.loginResponseData) ??
@@ -58,18 +51,11 @@ class DioProvider with CacheManager {
     //   var user = LoginResponse.fromJson(loginUserData);
     //   authToken = user.accessToken;
     // }
-    _instance?.options.headers = {
+    return <String, String>{
       "Content-Type": Headers.jsonContentType,
       "Content-language": LanguageEnums.ENGLISH.languageCode,
       "Authorization":
-      "Bearer " + (authToken != null ? KeyGenerator.decrypt(authToken) : "")
+          "Bearer " + (authToken != null ? KeyGenerator.decrypt(authToken) : "")
     };
   }
-
-  static _addInterceptors() {
-    _instance ??= httpDio;
-    _instance!.interceptors.clear();
-    _instance!.interceptors.add(_prettyDioLogger);
-  }
 }
-
