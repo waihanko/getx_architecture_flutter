@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: '>=3.3.0 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -31,16 +31,16 @@ dependencies:
     sdk: flutter
   get: ^4.6.6
   get_storage: ^2.1.1
-  pretty_dio_logger: ^1.1.0
+  pretty_dio_logger: ^1.4.0
   logger: ^2.0.2+1
   fluttertoast: ^8.2.4
-  dio: ^4.0.4
-  url_launcher: ^6.2.3
+  dio: ^5.5.0+1
+  url_launcher: ^6.3.0
   encrypt: ^5.0.3
   pull_to_refresh: ^2.0.0
   socket_io_client: ^2.0.3+1
   loading_indicator: ^3.1.1
-  better_player: ^0.0.83
+  better_player: ^0.0.84
 
   #firebase
 #  firebase_messaging: ^11.2.14

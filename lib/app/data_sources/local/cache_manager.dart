@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-class CacheManager {
+mixin class CacheManager {
   final GetStorage _prefStorage = GetStorage('PrefStorage');
 
   Future<CacheManager> init() async {

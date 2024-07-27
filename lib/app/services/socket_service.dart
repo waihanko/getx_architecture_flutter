@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:getx_architecture/app/data_sources/local/cache_manager.dart';
-import 'package:logger/logger.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
-class SocketService extends Logger with CacheManager {
+class SocketService  with CacheManager {
   static SocketService? _instance;
 
   SocketService._();
@@ -15,7 +15,7 @@ class SocketService extends Logger with CacheManager {
     socket?.destroy();
     socket?.dispose();
     socket = null;
-    i("Destroyed Socket}");
+    debugPrint("Destroyed Socket}");
   }
 
   initSocket() {
@@ -36,14 +36,14 @@ class SocketService extends Logger with CacheManager {
         socket?.connect();
         socket?.onConnect((data) {
           // print('connect');
-          i("Socket is Connected ${socket?.id}");
+          debugPrint("Socket is Connected ${socket?.id}");
         });
         socket?.onConnectError((data) {
-          e("Socket Error ${data.toString()}");
+          debugPrint("Socket Error ${data.toString()}");
           socket = null;
         });
       } on Exception catch (_, e) {
-        this.e(e.toString());
+        debugPrint(e.toString());
         socket = null;
       }
     }

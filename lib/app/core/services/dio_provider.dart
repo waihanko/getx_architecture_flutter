@@ -24,8 +24,8 @@ class DioProvider with CacheManager {
 
   static final BaseOptions _options = BaseOptions(
       baseUrl: baseUrl,
-      connectTimeout: 60 * 1000,
-      receiveTimeout: 60 * 1000,
+      connectTimeout: const Duration(minutes: 2),
+      receiveTimeout: const Duration(minutes: 2),
       headers: _getHeader());
 
   ///Returns a Dio client with Access token in header

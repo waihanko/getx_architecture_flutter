@@ -8,7 +8,6 @@ class AppThemes {
     return ThemeData(
         brightness: Brightness.light,
         scaffoldBackgroundColor: Colors.white70,
-        bottomAppBarColor: Colors.amber,
         primaryColor: Colors.blue,
         appBarTheme: AppBarTheme(
           color: Colors.green
